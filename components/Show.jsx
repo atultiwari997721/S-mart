@@ -20,7 +20,7 @@ const Show = () => {
                         <p className='flex items-center gap-1 mt-2 text-xs'>View more <ArrowRightIcon className='group-hover:ml-2 transition-all' size={14} /></p>
                     </div>
                     {/* Assuming assets.hero_product_img1 is a valid image source */}
-                    <Image className='w-20 mt-2' src={assets.hero_product_img1} alt="Best products sample" />
+                    <Image className='w-20 mt-2' src={assets.gs_logo} alt="Best products sample" />
                 </div>
                 {/* Second Section */}
                 <div className='flex-1 flex flex-col items-start justify-between bg-blue-200 rounded-2xl p-4 group min-w-[120px]'>
