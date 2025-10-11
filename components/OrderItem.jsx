@@ -4,8 +4,8 @@
 import { DotIcon } from "lucide-react";
 // import { useSelector } from "react-redux"; 
 import { useState } from "react";
-// import Rating from "./Rating"; 
-// import RatingModal from "./RatingModal";
+//import Rating from ".../rating"; 
+import RatingModal from "./RatingModal";
 import { Trash2 } from "lucide-react";
 
 const OrderItem = ({ order }) => {
@@ -90,11 +90,11 @@ const OrderItem = ({ order }) => {
           <div className="flex flex-col gap-6">
             {order.orderItems.map((item, index) => (
               // <<< FIX APPLIED HERE: Changed gap-4 to gap-2
-              <div key={index} className="flex items-center gap-2"> 
+              <div key={index} className="flex items-center gap-3"> 
                 <div className="w-20 aspect-square bg-slate-100 flex items-center justify-center rounded-md">
                   {/* Using standard <img> tag as replacement for next/image */}
                   <img
-                    className="h-14 w-auto"
+                    className="h-17 w-auto"
                     src={item.product.images[0] || 'https://placehold.co/50x50/cccccc/333333?text=Product'}
                     alt="product_img"
                     width={50}
@@ -147,7 +147,7 @@ const OrderItem = ({ order }) => {
                         <button
                           onClick={() => handleCancelOrder(order.id)}
                           disabled={isCancelling}
-                          className={`h-5 w-auto flex items-center gap-1 text-red-500 border border-red-500 rounded-lg px-1 text-xs transition hover:bg-red-100 disabled:opacity-50 disabled:cursor-not-allowed ${
+                          className={`h-5 w-auto flex items-center gap-1 text-red-500 border border-red-500 rounded-lg px- text-xs transition hover:bg-red-100 disabled:opacity-50 disabled:cursor-not-allowed ${
                             showConfirm && "bg-red-500 text-white hover:bg-red-600"
                           }`} 
                         >
@@ -179,12 +179,12 @@ const OrderItem = ({ order }) => {
           </div>
         </td>
 
-        <td className="text-center max-md:hidden">
+        <td className="text-center max-md:hidden ">
           {currency}
           {order.total}
         </td>
 
-        <td className="text-left max-md:hidden">
+        <td className="text-left max-md:hidden ">
           <p>
             {order.address.name}, {order.address.street},
           </p>
@@ -195,7 +195,7 @@ const OrderItem = ({ order }) => {
           <p>{order.address.phone}</p>
         </td>
 
-        <td className="text-left space-y-2 text-sm max-md:hidden">
+        <td className="text-left space-y-2 text-xs max-md:hidden">
           <div
             className={`flex items-center justify-center gap-1 rounded-full p-1 ${
               order.status === "confirmed"
@@ -212,7 +212,7 @@ const OrderItem = ({ order }) => {
       </tr>
       {/* Mobile */}
       <tr className="md:hidden">
-        <td colSpan={5}>
+        <td colSpan={4} className="text-sm space-y-1 py-0">
           <p>
             {order.address.name}, {order.address.street}
           </p>
@@ -231,7 +231,7 @@ const OrderItem = ({ order }) => {
       </tr>
       <tr>
         <td colSpan={4}>
-          <div className="border-b border-slate-300 w-6/7 mx-auto" />
+          <div className="border-b border-slate-400 w-9/7 mx-auto" />
         </td>
       </tr>
     </>
