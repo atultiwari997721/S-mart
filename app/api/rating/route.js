@@ -9,11 +9,11 @@ export async function POST(request) {
         if (!userId) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-        const { orderId, productId, rating, review } = await request.json();
+        const { orderId, productId, rating, review } = await request.json();
 
         if (!orderId || !productId || !rating) {
             return NextResponse.json({ error: "Missing required rating data" }, { status: 400 });
-        }       
+        }
 
         // Check if the order exists and belongs to the user
         const order = await prisma.order.findUnique({ where: { id: orderId, userId } });
@@ -102,4 +102,3 @@ export async function GET(request) {
         return NextResponse.json({ error: error.code || error.message }, { status: 400 });
     }
 }
-        
