@@ -186,7 +186,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="mx-6 bg-white">
+    <footer className="mx-6 bg-white my-10">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-slate-500">
           <div>
@@ -235,7 +235,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <p className="py-4 text-sm text-slate-500">
+        <p className="py-1 text-sm text-slate-600">
           Copyright 2025 © S-Mart All Right Reserved.
         </p>
       </div>
