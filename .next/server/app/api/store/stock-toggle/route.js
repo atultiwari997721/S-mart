@@ -1,0 +1,12 @@
+var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/store/stock-toggle/route.js")
+R.c("server/chunks/node_modules_@clerk_nextjs_dist_esm_server_fs_middleware-location_c284a98d.js")
+R.c("server/chunks/node_modules_next_5958af25._.js")
+R.c("server/chunks/node_modules_@opentelemetry_api_build_esm_7e8f41ca._.js")
+R.c("server/chunks/node_modules_@neondatabase_serverless_index_mjs_2c73916b._.js")
+R.c("server/chunks/node_modules_ws_570778bb._.js")
+R.c("server/chunks/node_modules_@clerk_backend_dist_1828ac92._.js")
+R.c("server/chunks/node_modules_15f73d54._.js")
+R.c("server/chunks/[root-of-the-server]__eac4705c._.js")
+R.m("[project]/.next-internal/server/app/api/store/stock-toggle/route/actions.js [app-rsc] (server actions loader, ecmascript)")
+R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/app/api/store/stock-toggle/route.js [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/app/api/store/stock-toggle/route.js [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports
