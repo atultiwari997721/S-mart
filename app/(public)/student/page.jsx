@@ -1,6 +1,8 @@
 'use client';
 
-import React from 'react';
+import { useUser } from '@clerk/nextjs';
+// Correct: Import React and necessary hooks from 'react'
+import React, { useEffect, useMemo, useState } from 'react';
 
 // --- Static Data Simulation ---
 const BRANCHES = ['CSE', 'AIML', 'Civil', 'Chemical', 'Electrical', 'Electronics', 'ECE', 'IT', 'DS', 'FireTech'];
@@ -20,6 +22,12 @@ const ALL_RESOURCES = [
     { branch: 'ECE', category: 'Notes', subject: 'Digital Logic Design', fileName: 'DLD Full Syllabus Notes', fileSize: 3.5, url: 'https://docs.google.com/uc?export=download&id=dummy_ece_dld' },
 ];
 
+// NOTE: The original ALL_RESOURCES was being called as a function in the useEffect.
+// Since it's a static array here, I'll remove that call and assume it's just data.
+// If ALL_RESOURCES was a fetch function, it would need to be defined outside or memoized.
+// For now, I will treat ALL_RESOURCES as static data and remove the invalid useEffect.
+
+
 // --- Reusable Components ---
 
 const CardButton = ({ label, onClick }) => (
@@ -33,7 +41,7 @@ const CardButton = ({ label, onClick }) => (
     >
         {label}
     </button>
-);
+); 
 
 const FileListItem = ({ file }) => (
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 my-2 bg-white border-l-4 border-indigo-500 rounded-xl shadow-md transition hover:shadow-lg">
@@ -87,7 +95,7 @@ const BranchView = ({ onSelect }) => (
     </section>
 );
 
-const CategoryView = ({ branch, onSelect, onBack }) => (
+const CategoryView = ({ branch, onSelect }) => (
     <section className="p-4 md:p-8">
         <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-800 tracking-tight">
             <span className="text-indigo-600">{branch}</span> | Select Category
@@ -102,7 +110,7 @@ const CategoryView = ({ branch, onSelect, onBack }) => (
 
 const SubjectView = ({ branch, category, onSelect }) => {
     // Utility to get subjects based on current filters
-    const subjects = React.useMemo(() => {
+    const subjects = useMemo(() => {
         const uniqueSubjects = ALL_RESOURCES
             .filter(r => r.branch === branch && r.category === category)
             .map(r => r.subject);
@@ -134,7 +142,7 @@ const SubjectView = ({ branch, category, onSelect }) => {
 
 const FilesView = ({ branch, category, subject }) => {
     // Utility to get files based on current filters
-    const filesList = React.useMemo(() => {
+    const filesList = useMemo(() => {
         return ALL_RESOURCES.filter(r => 
             r.branch === branch && 
             r.category === category && 
@@ -173,13 +181,40 @@ const FilesView = ({ branch, category, subject }) => {
 // --- Main Application Component ---
 
 const App = () => {
+    // 1. Move Hook Calls INSIDE the component body
+    const { user } = useUser();
+
+    // The original useEffect had an invalid function call (ALL_RESOURCES()).
+    // If you need to run some side effect upon user login, this is where you'd put it.
+    // Since ALL_RESOURCES is just static data, I'm removing the original useEffect.
+    // If ALL_RESOURCES was a function to fetch data, you would re-add a proper effect here.
+    // Example (if ALL_RESOURCES was a fetch function):
+    /*
+    useEffect(() => {
+        if (user) {
+            // fetchData(); // Call your real data-fetching function here
+        }
+    }, [user]);
+    */
+
     // State to manage navigation path
     // Changed to use React.useState to satisfy environments that flag destructured imports
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         branch: null,
         category: null,
         subject: null,
     });
+    
+    // 2. Add the UN-AUTHENTICATED early return here, where 'user' is defined
+    if (!user) {
+        return (
+            <div className="min-h-[80vh] flex flex-col items-center justify-center text-slate-400">
+                <h1 className="text-2xl sm:text-4xl font-semibold">
+                    Please <span className="text-slate-800">Login</span> to access student resources
+                </h1>
+            </div>
+        );
+    }
 
     // Unified handler for selecting a path item
     const handleSelect = (level, value) => {
@@ -263,4 +298,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default App; 
