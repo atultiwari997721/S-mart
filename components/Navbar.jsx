@@ -31,7 +31,7 @@ const Navbar = () => {
             <span className="text-green-600">S-</span>Mart
             <span className="text-green-600 text-5xl leading-0">.</span>
             <Protect plan="plus">
-              <p className="absolute text-xs font-semibold -top-1 -right-8 px-3 p-0.5 rounded-full flex items-center gap-2 text-white bg-green-500">
+              <p className="absolute text-xs font-semibold -top-1 -right-6 px-2 p-0.5 rounded-full flex items-center gap-2 text-white bg-green-500">
                 plus
               </p>
             </Protect>

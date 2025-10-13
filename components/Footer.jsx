@@ -171,9 +171,9 @@ const Footer = () => {
     {
       title: "CONTACT",
       links: [
-        { text: "+1-212-456-7890", path: "/", icon: MailIcon },
-        { text: "contact@example.com", path: "/", icon: PhoneIcon },
-        { text: "794 Francisco, 94102", path: "/", icon: MapPinIcon },
+        { text: "+91 7828706954", path: "https://wa.me/+917828706954", icon: MailIcon },
+        { text: "smartcollectionforme@gmail.com", path: "mailto:smartcollectionforme@gmail.com", icon: PhoneIcon },
+        { text: "Indore, Mp , India", path: "/", icon: MapPinIcon },
       ],
     },
   ];
@@ -190,6 +190,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-slate-500">
           <div>
+           
             <Link href="/" className="text-4xl font-semibold text-slate-700">
               <span className="text-green-600">S-</span>Mart
               <span className="text-green-600 text-5xl leading-0">.</span>
@@ -200,6 +201,7 @@ const Footer = () => {
               accessories, we bring you the best in innovation — all in one
               place.
             </p>
+
             <div className="flex items-center gap-3 mt-5">
               {socialIcons.map((item, i) => (
                 <Link
@@ -210,6 +212,13 @@ const Footer = () => {
                   <item.icon />
                 </Link>
               ))}
+            </div>
+            <div>
+              <button className="mt-4 px-27 py-1 bg-green-500 text-white rounded-full hover:scale-105 transition">
+                <Link href="/student" className="ml-2">
+                  <span className="text-ag-overlay-loading-center-600">S-Mart Student Hub</span>
+                </Link>
+              </button>
             </div>
           </div>
           <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5 text-sm ">

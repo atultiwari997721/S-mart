@@ -3,13 +3,7 @@
     "[project]/app/(public)/page": [
       "static/media/1b99372b3eaef0c8-s.p.758e15a8.woff2"
     ],
-    "[project]/app/store/manage-product/page": [
-      "static/media/1b99372b3eaef0c8-s.p.758e15a8.woff2"
-    ],
-    "[project]/app/store/orders/page": [
-      "static/media/1b99372b3eaef0c8-s.p.758e15a8.woff2"
-    ],
-    "[project]/app/store/page": [
+    "[project]/app/(public)/student/page": [
       "static/media/1b99372b3eaef0c8-s.p.758e15a8.woff2"
     ]
   },
