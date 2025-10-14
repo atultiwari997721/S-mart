@@ -162,7 +162,7 @@ const Footer = () => {
     {
       title: "WEBSITE?",
       links: [
-        { text: <p className="text-red-600">Student Hub</p>, path: "/student", icon: null },
+        { text: <p className="text-red-500 ">Student Hub</p>, path: "/student", icon: null },
         { text: "Home", path: "/", icon: null },
         { text: "Privacy Policy", path: "/", icon: null },
         { text: "Become Plus Member", path: "/pricing", icon: null },
