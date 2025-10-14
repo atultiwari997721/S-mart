@@ -116,6 +116,45 @@ const Footer = () => {
       />{" "}
     </svg>
   );
+  const StudentHubIcon = () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {" "}
+      <path
+        d="M10.0001 18.3337C14.6025 18.3337 18.3334 14.6028 18.3334 10.0003C18.3334 5.39789 14.6025 1.66699 10.0001 1.66699C5.39768 1.66699 1.66675 5.39789 1.66675 10.0003C1.66675 14.6028 5.39768 18.3337 10.0001 18.3337Z"
+        stroke="#90A1B9"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+      <path
+        d="M6.66675 7.50033H13.3334"
+        stroke="#90A1B9"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+      <path
+        d="M6.66675 10.0003H13.3334"
+        stroke="#90A1B9"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+      <path
+        d="M6.66675 12.5003H10.0001"
+        stroke="#90A1B9"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+    </svg>
+  );
   const LinkedinIcon = () => (
     <svg
       width="20"
@@ -162,7 +201,7 @@ const Footer = () => {
     {
       title: "WEBSITE?",
       links: [
-        { text: <p className="text-red-500 ">Student Hub</p>, path: "/student", icon: null },
+        { text: <p className="text-red-500 ">Student Hub</p>, path: "/student", icon: StudentHubIcon },
         { text: "Home", path: "/", icon: null },
         { text: "Privacy Policy", path: "/", icon: null },
         { text: "Become Plus Member", path: "/pricing", icon: null },
