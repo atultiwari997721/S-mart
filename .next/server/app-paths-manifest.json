@@ -1,5 +1,6 @@
 {
   "/(public)/page": "app/(public)/page.js",
+  "/(public)/product/[productId]/page": "app/(public)/product/[productId]/page.js",
   "/(public)/student/page": "app/(public)/student/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/api/address/route": "app/api/address/route.js",
