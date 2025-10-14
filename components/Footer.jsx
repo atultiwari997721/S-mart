@@ -116,7 +116,75 @@ const Footer = () => {
       />{" "}
     </svg>
   );
-  const StudentHubIcon = () => (
+const StudentHubIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      // Primary Gold Fill (#DAA520 Goldenrod) for the circle body
+      // Darker edge stroke (#8B4513 Saddle Brown) for depth and definition
+      d="M10.0001 18.3337C14.6025 18.3337 18.3334 14.6028 18.3334 10.0003C18.3334 5.39789 14.6025 1.66699 10.0001 1.66699C5.39768 1.66699 1.66675 5.39789 1.66675 10.0003C1.66675 14.6028 5.39768 18.3337 10.0001 18.3337Z"
+      fill="#e2b571ff" 
+      stroke="#8B4513" 
+      strokeWidth="1.0"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      // Bright Gold Stroke (#FFD700) for the lines to act as highlights
+      d="M6.66675 7.50033H13.3334"
+      stroke="#FFD700" 
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      // Bright Gold Stroke (#FFD700)
+      d="M6.66675 10.0003H13.3334"
+      stroke="#FFD700" 
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      // Bright Gold Stroke (#FFD700)
+      d="M6.66675 12.5003H10.0001"
+      stroke="#FFD700" 
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+  const HomeIcon = () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {" "}
+      <path
+        d="M3.33325 9.16699L10.0009 3.33366L16.6686 9.16699V16.6667C16.6686 17.1021 16.5361 17.5195 16.3098 17.8453C16.0834 18.1711 15.7792 18.3882 15.4459 18.4587C15.1126 18.5293 14.7692 18.4501 14.4866 18.2328C14.2041 18.0154 14.0009 17.8453C16.6686 16.6667 3.33325 16.6667 3.33325 9.16699Z"
+        stroke="#90A1B9"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+      <path
+        d="M6.66675 18.3337V10.0003H13.3334V18.3337"
+        stroke="#90A1B9"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+    </svg>
+  );
+  const PricingIcon = () => (
     <svg
       width="20"
       height="20"
@@ -127,28 +195,72 @@ const Footer = () => {
       {" "}
       <path
         d="M10.0001 18.3337C14.6025 18.3337 18.3334 14.6028 18.3334 10.0003C18.3334 5.39789 14.6025 1.66699 10.0001 1.66699C5.39768 1.66699 1.66675 5.39789 1.66675 10.0003C1.66675 14.6028 5.39768 18.3337 10.0001 18.3337Z"
-        stroke="#90A1B9"
+        stroke="#46d475ff"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />{" "}
       <path
-        d="M6.66675 7.50033H13.3334"
-        stroke="#90A1B9"
+        d="M10.0001 6.66699V10.0003L12.5001 11.6669"
+        stroke="#13a813ff"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+    </svg>
+  ); 
+  
+  const PlusMemberIcon = () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {" "}
+      <path
+        d="M10.0001 18.3337C14.6025 18.3337 18.3334 14.6028 18.3334 10.0003C18.3334 5.39789 14.6025 1.66699 10.0001 1.66699C5.39768 1.66699 1.66675 5.39789 1.66675 10.0003C1.66675 14.6028 5.39768 18.3337 10.0001 18.3337Z"
+        stroke="#258f22ff"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+      <path
+        d="M10.0001 6.66699V13.3337"
+        stroke="#63ee5eff"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />{" "}
       <path
         d="M6.66675 10.0003H13.3334"
-        stroke="#90A1B9"
+        stroke="#63ee5eff"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />{" "}
+    </svg>
+  );
+  const StoreIcon = () => (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {" "}
+      <path
+        d="M3.33325 9.16699L10.0009 3.33366L16.6686 9.16699V16.6667C16.6686 17.1021 16.5361 17.5195 16.3098 17.8453C16.0834 18.1711 15.7792 18.3882 15.4459 18.4587C15.1126 18.5293 14.7692 18.4501 14.4866 18.2328C14.2041 18.0154 14.0009 17.8453C16.6686 16.6667 3.33325 16.6667 3.33325 9.16699Z"
+        stroke="#f38c2bff"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />{" "}
       <path
-        d="M6.66675 12.5003H10.0001"
-        stroke="#90A1B9"
+        d="M6.66675 18.3337V10.0003H13.3334V18.3337"
+        stroke="#54ac6aff"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -201,11 +313,11 @@ const Footer = () => {
     {
       title: "WEBSITE?",
       links: [
-        { text: <p className="text-red-500 ">Student Hub</p>, path: "/student", icon: StudentHubIcon },
-        { text: "Home", path: "/", icon: null },
-        { text: "Privacy Policy", path: "/", icon: null },
-        { text: "Become Plus Member", path: "/pricing", icon: null },
-        { text: "Create Your Store", path: "/create-store", icon: null },
+        { text: <p className="text-green-500 bg-gradient-to-r from-yellow-700 via-yellow-500 to-yellow-800 bg-clip-text text-transparent"><span className="text-green-600">S-</span><span className="text-green-800">Mart</span> Student Hub</p>, path: "/student", icon: StudentHubIcon },
+        { text: <p className="text-orange-400 ">Create Your Store</p>, path: "/create-store", icon: StoreIcon },
+        { text: <p className="text-green-500 ">Privacy Policy</p>, path: "/", icon: PricingIcon },
+        { text: <p className="text-green-500 ">Become Plus Member</p>, path: "/pricing", icon: PlusMemberIcon },
+
       ],
     },
     {
