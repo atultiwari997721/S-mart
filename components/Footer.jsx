@@ -215,7 +215,7 @@ const Footer = () => {
             </div>
             <div>
               <button className="mt-4 px-27 py-1 bg-green-500 text-white rounded-full hover:scale-105 transition">
-                <Link href="/student" className="ml-2">
+                <Link href="student" className="ml-2">
                   <span className="text-ag-overlay-loading-center-600">S-Mart Student Hub</span>
                 </Link>
               </button>

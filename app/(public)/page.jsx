@@ -6,6 +6,7 @@ import OurSpecs from "@/components/OurSpec";
 import LatestProducts from "@/components/LatestProducts";
 import Show from "@/components/Show";
 
+
 export default function Home() {
     return (
         <div>
