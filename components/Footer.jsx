@@ -162,6 +162,7 @@ const Footer = () => {
     {
       title: "WEBSITE?",
       links: [
+        { text: "Student Hub", path: "/student", icon: null },
         { text: "Home", path: "/", icon: null },
         { text: "Privacy Policy", path: "/", icon: null },
         { text: "Become Plus Member", path: "/pricing", icon: null },
@@ -216,7 +217,7 @@ const Footer = () => {
             <div>
               <button className="mt-4 px-27 py-1 bg-green-500 text-white rounded-full hover:scale-105 transition">
                 <Link href="student" className="ml-2">
-                  <span className="text-ag-overlay-loading-center-600">S-Mart Student Hub</span>
+                  <span className=" text-xs text-ag-overlay-loading-center-600">S-Mart Student Hub</span>
                 </Link>
               </button>
             </div>
