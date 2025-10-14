@@ -6,18 +6,19 @@ import React, { useMemo, useState } from 'react';
 // --- Static Data Simulation ---
 const BRANCHES = ['CSE', 'AIML', 'Civil', 'Chemical', 'Electrical', 'Electronics', 'ECE', 'IT', 'DS', 'FireTech'];
 const CATEGORIES = ['MST1', 'MST2', 'EST', 'Notes', 'Assignments', 'PYQS'];
+const SEMESTERS = ['Semester-1', 'Semester-2', 'Semester-3', 'Semester-4', 'Semester-5', 'Semester-6', 'Semester-7', 'Semester-8'];
 
 const ALL_RESOURCES = [
-    { branch: 'CSE', category: 'Notes', subject: 'Data Structures', fileName: 'DS Handbook (Units 1-3)', fileSize: 2.8, url: 'https://docs.google.com/uc?export=download&id=dummy_ds_notes' },
-    { branch: 'CSE', category: 'PYQS', subject: 'Data Structures', fileName: 'DS Previous Year Set A', fileSize: 1.1, url: 'https://docs.google.com/uc?export=download&id=dummy_ds_pyqs' },
-    { branch: 'CSE', category: 'MST1', subject: 'Mathematics-I', fileName: 'M-I Formula Sheet', fileSize: 0.5, url: 'https://docs.google.com/uc?export=download&id=dummy_m1_mst1' },
-    { branch: 'CSE', category: 'EST', subject: 'Programming in C', fileName: 'C Final Exam Review', fileSize: 3.2, url: 'https://docs.google.com/uc?export=download&id=dummy_c_est' },
-    { branch: 'AIML', category: 'Notes', subject: 'Machine Learning', fileName: 'ML Core Concepts', fileSize: 4.5, url: 'https://docs.google.com/uc?export=download&id=dummy_ml_notes' },
-    { branch: 'AIML', category: 'Assignments', subject: 'Deep Learning', fileName: 'DL Assignment 2', fileSize: 0.8, url: 'https://docs.google.com/uc?export=download&id=dummy_dl_assign' },
-    { branch: 'Civil', category: 'Notes', subject: 'Structural Analysis', fileName: 'Structural Unit 1 Notes', fileSize: 1.9, url: 'https://docs.google.com/uc?export=download&id=dummy_civil_notes' },
-    { branch: 'Electrical', category: 'PYQS', subject: 'Circuit Theory', fileName: 'Circuit Theory PYQS', fileSize: 1.4, url: 'https://docs.google.com/uc?export=download&id=dummy_electrical_pyqs' },
-    { branch: 'Electrical', category: 'EST', subject: 'Circuit Theory', fileName: 'Circuit Theory EST Review', fileSize: 2.1, url: 'https://docs.google.com/uc?export=download&id=dummy_electrical_est_review' },
-    { branch: 'ECE', category: 'Notes', subject: 'Digital Logic Design', fileName: 'DLD Full Syllabus Notes', fileSize: 3.5, url: 'https://docs.google.com/uc?export=download&id=dummy_ece_dld' },
+    { branch: 'CSE', category: 'Notes', subject: 'Data Structures', semester: 'Semester-3', fileName: 'DS Handbook (Units 1-3)', fileSize: 2.8, url: 'https://docs.google.com/uc?export=download&id=dummy_ds_notes' },
+    { branch: 'CSE', category: 'PYQS', subject: 'Data Structures', semester: 'Semester-3', fileName: 'DS Previous Year Set A', fileSize: 1.1, url: 'https://docs.google.com/uc?export=download&id=dummy_ds_pyqs' },
+    { branch: 'CSE', category: 'MST1', subject: 'Mathematics-I', semester: 'Semester-1', fileName: 'M-I Formula Sheet', fileSize: 0.5, url: 'https://docs.google.com/uc?export=download&id=dummy_m1_mst1' },
+    { branch: 'CSE', category: 'EST', subject: 'Programming in C', semester: 'Semester-2', fileName: 'C Final Exam Review', fileSize: 3.2, url: 'https://docs.google.com/uc?export=download&id=dummy_c_est' },
+    { branch: 'AIML', category: 'Notes', subject: 'Machine Learning', semester: 'Semester-5', fileName: 'ML Core Concepts', fileSize: 4.5, url: 'https://docs.google.com/uc?export=download&id=dummy_ml_notes' },
+    { branch: 'AIML', category: 'Assignments', subject: 'Deep Learning', semester: 'Semester-6', fileName: 'DL Assignment 2', fileSize: 0.8, url: 'https://docs.google.com/uc?export=download&id=dummy_dl_assign' },
+    { branch: 'Civil', category: 'Notes', subject: 'Structural Analysis', semester: 'Semester-4', fileName: 'Structural Unit 1 Notes', fileSize: 1.9, url: 'https://docs.google.com/uc?export=download&id=dummy_civil_notes' },
+    { branch: 'Electrical', category: 'PYQS', subject: 'Circuit Theory', semester: 'Semester-3', fileName: 'Circuit Theory PYQS', fileSize: 1.4, url: 'https://docs.google.com/uc?export=download&id=dummy_electrical_pyqs' },
+    { branch: 'Electrical', category: 'EST', subject: 'Circuit Theory', semester: 'Semester-3', fileName: 'Circuit Theory EST Review', fileSize: 2.1, url: 'https://docs.google.com/uc?export=download&id=dummy_electrical_est_review' },
+    { branch: 'ECE', category: 'Notes', subject: 'Digital Logic Design', semester: 'Semester-4', fileName: 'DLD Full Syllabus Notes', fileSize: 3.5, url: 'https://docs.google.com/uc?export=download&id=dummy_ece_dld' },
 ];
 
 // --- Reusable Components ---
@@ -92,6 +93,19 @@ const BackButton = ({ onClick }) => (
 );
 
 // --- View Components ---
+
+const SemesterView = ({ onSelect }) => (
+    <section className="p-4 md:p-8">
+        <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-800 tracking-tight">
+            Select Your <span className="text-purple-600">Semester</span>
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {SEMESTERS.map(semester => (
+                <CardButton key={semester} label={semester} onClick={() => onSelect(semester)} />
+            ))}
+        </div>
+    </section>
+);
 
 const BranchView = ({ onSelect }) => (
     <section className="p-4 md:p-8">
@@ -193,6 +207,7 @@ const App = () => {
     const { user } = useUser();
 
     const [state, setState] = useState({
+        semester: null,
         branch: null,
         category: null,
         subject: null,
@@ -213,7 +228,11 @@ const App = () => {
         let newState = { ...state };
         newState[level] = value;
 
-        if (level === 'branch') {
+        if (level === 'semester') {
+            newState.branch = null;
+            newState.category = null;
+            newState.subject = null;
+        } else if (level === 'branch') {
             newState.category = null;
             newState.subject = null;
         } else if (level === 'category') {
@@ -229,12 +248,16 @@ const App = () => {
         } else if (state.category) {
             setState(prev => ({ ...prev, category: null }));
         } else if (state.branch) {
-            setState(prev => ({ ...prev, branch: null }));
+            setState(prev => ({ ...prev, branch: null, category: null, subject: null }));
+        } else if (state.semester) {
+            setState(prev => ({ ...prev, semester: null, branch: null, category: null, subject: null }));
         }
     };
 
     let CurrentView;
-    if (!state.branch) {
+    if (!state.semester) {
+        CurrentView = <SemesterView onSelect={(semester) => handleSelect('semester', semester)} />;
+    } else if (!state.branch) {
         CurrentView = <BranchView onSelect={(branch) => handleSelect('branch', branch)} />;
     } else if (!state.category) {
         CurrentView = <CategoryView
