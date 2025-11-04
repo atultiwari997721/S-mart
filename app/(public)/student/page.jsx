@@ -1,7 +1,7 @@
 'use client';
 
 import { useUser } from '@clerk/nextjs';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 
 // --- Global Configuration: Your Single Drive Link ---
 // The link you want to apply to ALL resources once a Category is selected.
@@ -12,22 +12,19 @@ const BRANCHES = ['CSE', 'AIML', 'Civil', 'Chemical', 'Electrical', 'Electronics
 const CATEGORIES = ['MST1', 'MST2', 'EST', 'Notes', 'Assignments', 'PYQS'];
 const SEMESTERS = ['Semester-1', 'Semester-2', 'Semester-3', 'Semester-4', 'Semester-5', 'Semester-6', 'Semester-7', 'Semester-8'];
 
-/**
- * NOTE: ALL_RESOURCES is now DEPRECATED for the FileListItem and FilesView,
- * as we are now redirecting the user to a GLOBAL_DRIVE_LINK upon category selection.
- * I will remove the unused ALL_RESOURCES to simplify the code.
- */
-
 // --- Reusable Components (Modified CardButton and BackButton are kept) ---
 
-const CardButton = ({ label, onClick }) => (
+const CardButton = ({ label, onClick, isGolden = false }) => (
     <button
         onClick={onClick}
-        className="
-            p-4 md:p-6 rounded-xl shadow-md transition duration-300 ease-in-out w-full bg-white text-gray-800 
-            text-lg font-semibold text-center hover:ring-4 hover:ring-purple-300 hover:shadow-xl
-            active:bg-purple-50 transform hover:-translate-y-0.5
-        "
+        className={`
+            p-4 md:p-6 rounded-xl shadow-md transition duration-300 ease-in-out w-full
+            text-lg font-semibold text-center transform hover:-translate-y-0.5
+            ${isGolden
+                ? 'bg-amber-400 text-amber-900 border-4 border-amber-500 hover:ring-8 hover:ring-amber-200 hover:shadow-2xl'
+                : 'bg-white text-gray-800 hover:ring-4 hover:ring-purple-300 hover:shadow-xl active:bg-purple-50'
+            }
+        `}
     >
         {label}
     </button>
@@ -43,6 +40,37 @@ const BackButton = ({ onClick }) => (
     </button>
 );
 
+// --- NEW Golden Folder Card Component ---
+const GoldenFolderCard = () => (
+    <a
+        href={GLOBAL_DRIVE_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Access the Global Golden Folder on Google Drive"
+        className="
+            block p-4 md:p-6 mb-8 rounded-2xl shadow-2xl transition duration-300 ease-in-out
+            bg-gradient-to-r from-yellow-300 to-amber-500 text-white
+            hover:from-yellow-400 hover:to-amber-600 border-4 border-yellow-200
+            transform hover:scale-[1.01] active:scale-[0.99] cursor-pointer
+        "
+    >
+        <div className="flex items-center space-x-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-amber-900 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+            </svg>
+            <div className="flex-grow">
+                <h3 className="text-xl md:text-2xl font-black text-amber-900 leading-snug">
+                    Access the **Golden Folder** Now! 🚀
+                </h3>
+                <p className="text-sm text-amber-800 font-medium mt-1">
+                    Direct access to **ALL** S-mart Student Hub resources on Google Drive.
+                </p>
+            </div>
+            <span className="text-2xl font-extrabold text-amber-900 ml-4">→</span>
+        </div>
+    </a >
+);
+
 // --- View Components ---
 
 const SemesterView = ({ onSelect }) => (
@@ -50,6 +78,12 @@ const SemesterView = ({ onSelect }) => (
         <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-800 tracking-tight">
             Select Your <span className="text-purple-600">Semester</span>
         </h2>
+        
+        {/* Golden Folder Card Added Here */}
+        <div className="max-w-6xl mx-auto">
+            <GoldenFolderCard />
+        </div>
+        
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {SEMESTERS.map(semester => (
                 <CardButton key={semester} label={semester} onClick={() => onSelect(semester)} />
@@ -63,6 +97,12 @@ const BranchView = ({ onSelect }) => (
         <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-800 tracking-tight">
             Select Your <span className="text-purple-600">Branch</span>
         </h2>
+
+        {/* Golden Folder Card Added Here */}
+        <div className="max-w-6xl mx-auto">
+            <GoldenFolderCard />
+        </div>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {BRANCHES.map(branch => (
                 <CardButton key={branch} label={branch} onClick={() => onSelect(branch)} />
@@ -76,6 +116,12 @@ const CategoryView = ({ branch, semester, onSelect }) => (
         <h2 className="text-3xl font-extrabold mb-8 text-center text-gray-800 tracking-tight">
             <span className="text-purple-600">{branch} / {semester}</span> | Select Category
         </h2>
+
+        {/* Golden Folder Card Added Here */}
+        <div className="max-w-4xl mx-auto">
+            <GoldenFolderCard />
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
             {CATEGORIES.map(category => (
                 <CardButton key={category} label={category} onClick={() => onSelect(category)} />
@@ -84,7 +130,7 @@ const CategoryView = ({ branch, semester, onSelect }) => (
     </section>
 );
 
-// --- NEW View: Replaced FilesView with a simpler LinkView ---
+// --- LinkView remains the same, but it's the final destination ---
 const LinkView = ({ semester, branch, category }) => {
     return (
         <section className="p-4 md:p-8">
@@ -102,7 +148,7 @@ const LinkView = ({ semester, branch, category }) => {
                 <p className="text-sm mt-2 text-purple-600 mb-6">
                     You're being directed to the centralized Google Drive folder for all subjects in this section.
                 </p>
-                
+
                 {/* The main action button with the GLOBAL_DRIVE_LINK */}
                 <a
                     href={GLOBAL_DRIVE_LINK}
@@ -112,7 +158,7 @@ const LinkView = ({ semester, branch, category }) => {
                         inline-flex items-center justify-center
                         px-8 py-3 text-white font-bold rounded-full text-lg
                         bg-gradient-to-r from-green-500 to-teal-500
-                        hover:from-green-600 hover:to-teal-600 transition duration-300 shadow-xl 
+                        hover:from-green-600 hover:to-teal-600 transition duration-300 shadow-xl
                         transform hover:scale-[1.02] active:scale-[0.98]
                     "
                     aria-label={`Open Google Drive folder for ${category}`}

@@ -1,10 +1,8 @@
 {
+  "/(public)/cart/page": "app/(public)/cart/page.js",
   "/(public)/page": "app/(public)/page.js",
   "/(public)/student/page": "app/(public)/student/page.js",
-  "/admin/page": "app/admin/page.js",
   "/api/address/route": "app/api/address/route.js",
-  "/api/admin/dashboard/route": "app/api/admin/dashboard/route.js",
-  "/api/admin/is-admin/route": "app/api/admin/is-admin/route.js",
   "/api/cart/route": "app/api/cart/route.js",
   "/api/products/route": "app/api/products/route.js",
   "/api/rating/route": "app/api/rating/route.js",
