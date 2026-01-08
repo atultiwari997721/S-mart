@@ -323,8 +323,8 @@ const StudentHubIcon = () => (
     {
       title: "CONTACT",
       links: [
-        { text: "+91 7828706954", path: "https://wa.me/+917828706954", icon: MailIcon },
-        { text: "smartcollectionforme@gmail.com", path: "mailto:smartcollectionforme@gmail.com", icon: PhoneIcon },
+        { text: "+91 7974257514", path: "https://wa.me/+917974257514", icon: MailIcon },
+        { text: "techknowledge7225969638@gmail.com", path: "mailto:techknowledge7225969638@gmail.com", icon: PhoneIcon },
         { text: "Indore, Mp , India", path: "/", icon: MapPinIcon },
       ],
     },
