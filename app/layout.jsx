@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${outfit.className} antialiased`}>
+        <body className={`${outfit.className} antialiased transition-all duration-[2000000ms] opacity-0 pointer-events-none`}>
           <StoreProvider>
             <Toaster />
             {children}
